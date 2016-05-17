@@ -10,6 +10,22 @@ http://www.hearthhead.com/cards#text:0+2-12-11
 
 ---
 
+Usage:
+
+    NAME
+        hearthstone_cl - a command-line Hearthstone game
+    
+    SYNOPSIS
+        hearthstone_cl [-D] [--strict-deck=false] deck1.txt deck2.txt
+        (deck files go in "decks" directory)
+    
+    OPTIONS
+        -D = debug mode
+        --strict-deck=false = allow any deck of 30 cards, no restrictions
+        --strict-deck=true = (default) legal deck of 30 cards
+
+---
+
 ## Plan
 
 ### Objects:
