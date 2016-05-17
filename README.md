@@ -77,8 +77,10 @@ http://www.hearthhead.com/cards#text:0+2-12-11
     - hand + 1 card
     - check hand space, hand size <= max_hand_size
     - if > max_hand_size, burn card
-- turn begins
-
 
 ### Events:
 
+- turn begins
+- card draw
+- add to hand
+- turn ends
