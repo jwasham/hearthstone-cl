@@ -60,9 +60,9 @@ bool HearthstoneGame::loadDecks() {
 
 bool HearthstoneGame::deckCheck() {
 
-    const int maxDeckSize = 30;
-    int maxPerLegendary = 1;
-    int maxPerNonLegendary = 2;
+    const int maxDeckSize {30};
+    int maxPerLegendary {1};
+    int maxPerNonLegendary {2};
 
     if (not strictDecks) {
         maxPerLegendary = maxDeckSize;

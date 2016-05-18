@@ -100,3 +100,15 @@ Usage:
 - card draw
 - add to hand
 - turn ends
+- card played
+- battlecry
+- summon
+- minion being attacked
+- on damaged
+- on destroyed
+- hero power played
+- hero attacks
+- minion attacks
+- fatigue taken
+
+

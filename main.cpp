@@ -11,9 +11,10 @@ int main(int argc, char * argv[])
     bool strictDeckMode = false;
     string deck1 = argv[1];
     string deck2 = argv[2];
-    int optionalArgCount = 0;
+    int optionalArgCount {0};
+    const int minArgCount {3};
 
-    if (argc < 3) {
+    if (argc < minArgCount) {
         showUsage();
     }
 
@@ -30,11 +31,12 @@ int main(int argc, char * argv[])
         }
     }
 
-    if (optionalArgCount + 3 < argc) {
+    if (optionalArgCount + minArgCount < argc) {
         showUsage();
         exit(EXIT_FAILURE);
     }
 
+    // always the last 2 arguments
     deck1 = argv[optionalArgCount + 1];
     deck2 = argv[optionalArgCount + 2];
 
