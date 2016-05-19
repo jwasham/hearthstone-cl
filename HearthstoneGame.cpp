@@ -47,7 +47,7 @@ bool HearthstoneGame::loadDecks() {
             std::cout << "Reading decklist " << deck1Location << std::endl;
         }
     } else {
-        cout << "Failed to open file " << deck1Location << endl;
+        cerr << "Failed to open file " << deck1Location << endl;
         exit(EXIT_FAILURE);
     }
 
