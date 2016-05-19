@@ -1,3 +1,5 @@
+#include <iostream>
+#include <fstream>
 #include "HearthstoneGame.h"
 
 HearthstoneGame::HearthstoneGame() {
@@ -13,7 +15,7 @@ void HearthstoneGame::init(const std::string & deck1, const std::string & deck2)
     deck2Location = deckDirectory + "/" + deck2;
 
     if (loadDecks()) {
-        bool deckCheck = this->deckCheck();
+        //bool deckCheck = this->deckCheck();
     }
 }
 
@@ -58,16 +60,16 @@ bool HearthstoneGame::loadDecks() {
 //
 //}
 
-bool HearthstoneGame::deckCheck() {
-
-    const int maxDeckSize {30};
-    int maxPerLegendary {1};
-    int maxPerNonLegendary {2};
-
-    if (not strictDecks) {
-        maxPerLegendary = maxDeckSize;
-        maxPerNonLegendary = maxDeckSize;
-    }
-
-    return true;
-}
+//bool HearthstoneGame::deckCheck() {
+//
+//    const int maxDeckSize {30};
+//    int maxPerLegendary {1};
+//    int maxPerNonLegendary {2};
+//
+//    if (not strictDecks) {
+//        maxPerLegendary = maxDeckSize;
+//        maxPerNonLegendary = maxDeckSize;
+//    }
+//
+//    return true;
+//}

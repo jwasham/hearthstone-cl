@@ -10,6 +10,21 @@ http://www.hearthhead.com/cards#text:0+2-12-11
 
 ---
 
+Quick Start (for now, during initial development):
+
+1. Clone the project.
+2. cd to project directory.
+3. Build it like this:
+
+
+    g++ -std=c++11 main.cpp HearthstoneGame.cpp -o hearthstone_cl
+    ./hearthstone_cl -D --strict-deck=false deck1.txt deck2.txt
+
+
+Alternately, you can use `cmake` if you know the commands.
+
+---
+
 Usage:
 
     NAME

@@ -1,10 +1,6 @@
 #ifndef HEARTHSTONE_CL_HEARTHSTONEGAME_H
 #define HEARTHSTONE_CL_HEARTHSTONEGAME_H
 
-#include <iostream>
-#include <string>
-#include <fstream>
-
 class HearthstoneGame
 {
 private:
@@ -14,7 +10,7 @@ private:
     std::string deck1Location;
     std::string deck2Location;
     bool loadDecks();
-    bool deckCheck();
+    //bool deckCheck();
 
 public:
     HearthstoneGame();
