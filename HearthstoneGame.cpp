@@ -3,12 +3,12 @@
 #include "HearthstoneGame.h"
 
 HearthstoneGame::HearthstoneGame() {
-    this->debugMode = false;
-    this->strictDecks = true;
+    debugMode = false;
+    strictDecks = true;
 }
 
-void HearthstoneGame::init(const std::string & deck1, const std::string & deck2)
-{
+void HearthstoneGame::setDecks(const std::string & deck1, const std::string & deck2) {
+
     std::cout << "Here we go." << std::endl;
 
     deck1Location = deckDirectory + "/" + deck1;

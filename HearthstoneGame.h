@@ -14,7 +14,7 @@ private:
 
 public:
     HearthstoneGame();
-    void init(const std::string & deck1, const std::string & deck2);
+    void setDecks(const std::string & deck1, const std::string & deck2);
     void enableDebugMode();
     void disableStrictDecks();
 };
