@@ -29,7 +29,7 @@ void HearthstoneGame::disableStrictDecks() {
 
 bool HearthstoneGame::loadDecks() {
 
-    using namespace std;
+    using std::ifstream;
 
     // load from files
 
@@ -47,7 +47,7 @@ bool HearthstoneGame::loadDecks() {
             std::cout << "Reading decklist " << deck1Location << std::endl;
         }
     } else {
-        cerr << "Failed to open file " << deck1Location << endl;
+        std::cerr << "Failed to open file " << deck1Location << std::endl;
         exit(EXIT_FAILURE);
     }
 

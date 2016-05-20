@@ -1,12 +1,12 @@
 #include <iostream>
 #include "HearthstoneGame.h"
 
-using namespace std;
-
 void showUsage();
 
 int main(int argc, char * argv[])
 {
+    using std::string;
+
     bool debugMode = false;
     bool strictDeckMode = false;
     string deck1 = argv[1];
@@ -53,6 +53,9 @@ int main(int argc, char * argv[])
 }
 
 void showUsage() {
+    using std::cout;
+    using std::endl;
+
     cout << "Usage: hearthstone_cl [-D] [--strict-deck=false] deck1.txt deck2.txt" << endl;
     cout << "       (deck files go in \"decks\" directory)" << endl;
     cout << "       -D = debug mode" << endl;
