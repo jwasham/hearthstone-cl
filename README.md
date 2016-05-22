@@ -49,15 +49,79 @@ Usage:
 
 #### Player
 
-- name
-- class
-- hero
-- hero power
-- deck
-- hand
-- board half
-- mana
-- graveyard (hidden)
+- properties
+    - name
+    - hero (Hero class)
+    - deck (Deck class)
+    - hand (Hand class)
+    - board half
+    - mana
+    - graveyard (hidden)
+
+#### Deck
+
+- properties
+    - CARD_MAX = 30 (for initialization)
+    - hero class
+    - Cards cards[] (or vector. Some effects can make deck size grow well beyond CARD_MAX)
+- methods
+    - addCard(Card & card)
+    - shuffle()
+    - getRandomCards(int count) // for initial hand
+    - canDrawCard()
+    - drawCard()
+    - shuffleIntoDeck(Card & card)
+
+#### Hero
+
+- properties
+    - name
+    - hero class
+    - hero power
+- methods
+    - usePower()
+    - canUsePower()
+    - canAttack()
+
+#### Card
+
+- properties
+    - name
+    - cost
+- methods
+    - canPlayCard()
+
+#### Minion (Card)
+
+- properties
+    - name
+    - cost
+    - attack
+    - health
+    - battlecry
+    - charge
+    - taunt
+- method
+    - battleCry()
+    - hasCharge()
+    - hasTaunt()
+    - canAttack()
+    - attack()
+    - takeDamage(int damage)
+    - die()
+
+#### Spell (Card)
+
+- properties
+    - name
+    - cost
+
+#### Hand
+
+- properties
+    - Card cards[]
+- method
+    - canPlayACard()
 
 #### Play Log
 
