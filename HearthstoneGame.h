@@ -4,9 +4,9 @@
 class HearthstoneGame
 {
 private:
-    bool debugMode;
-    bool strictDecks;
-    const std::string deckDirectory = "decks";
+    bool debugMode { false };
+    bool strictDecks { true };
+    const std::string deckDirectory { "decks" };
     std::string deck1Location;
     std::string deck2Location;
     bool loadDecks();
@@ -14,6 +14,7 @@ private:
 
 public:
     HearthstoneGame();
+    ~HearthstoneGame();
     void setDecks(const std::string & deck1, const std::string & deck2);
     void enableDebugMode();
     void disableStrictDecks();

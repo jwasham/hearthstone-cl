@@ -2,15 +2,14 @@
 #include <fstream>
 #include "HearthstoneGame.h"
 
-HearthstoneGame::HearthstoneGame() {
-    debugMode = false;
-    strictDecks = true;
-}
+HearthstoneGame::HearthstoneGame() {}
+HearthstoneGame::~HearthstoneGame() {}
 
 void HearthstoneGame::setDecks(const std::string & deck1, const std::string & deck2) {
 
     std::cout << "Here we go." << std::endl;
 
+    // @todo replace with OS-appropriate directory separator
     deck1Location = deckDirectory + "/" + deck1;
     deck2Location = deckDirectory + "/" + deck2;
 
