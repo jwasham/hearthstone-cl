@@ -1,6 +1,8 @@
 #ifndef HEARTHSTONE_CL_DECK_H
 #define HEARTHSTONE_CL_DECK_H
 
+#include "Card.h"
+
 class Deck {
 private:
   const short CARD_MAX {30};

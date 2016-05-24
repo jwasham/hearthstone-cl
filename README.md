@@ -76,6 +76,8 @@ Usage:
 
 - properties
     - name
+    - health
+    - armor
     - HeroClass
 - methods
     - usePower()
@@ -83,8 +85,18 @@ Usage:
     - canAttack()
 
 #### HeroClass
+
+- properties
     - name
-    - hero power
+    - heroPower
+
+#### HeroPower
+
+- properties
+    - cost
+- methods
+    - canUse();
+    - use(Entity & entity);
 
 #### HeroClasses
 
@@ -109,6 +121,7 @@ Usage:
     - battlecry
     - charge
     - taunt
+    - targetable
 - method
     - battleCry()
     - hasCharge()
