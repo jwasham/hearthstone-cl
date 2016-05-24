@@ -76,12 +76,20 @@ Usage:
 
 - properties
     - name
-    - hero class
-    - hero power
+    - HeroClass
 - methods
     - usePower()
     - canUsePower()
     - canAttack()
+
+#### HeroClass
+    - name
+    - hero power
+
+#### HeroClasses
+
+- methods
+    - getHeroFromClassName()
 
 #### Card
 
