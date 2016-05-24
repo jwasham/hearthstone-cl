@@ -5,7 +5,7 @@
 
 class Deck {
 private:
-  const short CARD_MAX {30};
+  const short CARD_MAX{30};
   std::vector<Card> cards;
 
 public:

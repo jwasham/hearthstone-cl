@@ -5,7 +5,7 @@
 
 // http://www.hearthhead.com/heroes
 
-class Hero: public Character {
+class Hero : public Character {
 private:
   std::string name;
   HeroClass heroClass;
