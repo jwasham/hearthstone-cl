@@ -3,6 +3,8 @@
 
 #include "HeroClass.h"
 
+// http://www.hearthhead.com/heroes
+
 class Hero {
 private:
   std::string name;
