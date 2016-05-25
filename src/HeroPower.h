@@ -8,7 +8,7 @@ private:
 
 public:
   HeroPower();
-  ~HeroPower();
+  virtual ~HeroPower();
   bool canUse() const;
   void use(Entity &entity);
 };

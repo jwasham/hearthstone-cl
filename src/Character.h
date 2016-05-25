@@ -5,7 +5,7 @@ class Character {
 private:
 public:
   Character();
-  ~Character();
+  virtual ~Character();
 };
 
 #endif // HEARTHSTONE_CL_CHARACTER_H

@@ -10,7 +10,7 @@ private:
 
 public:
   Deck();
-  ~Deck();
+  virtual ~Deck();
   void addCard(const Card &card);
   void shuffle();
   Card *getRandomCards(const int count);

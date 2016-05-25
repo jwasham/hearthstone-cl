@@ -15,7 +15,7 @@ private:
 
 public:
   HearthstoneGame();
-  ~HearthstoneGame();
+  virtual ~HearthstoneGame();
   void setDecks(const std::string &deck1, const std::string &deck2);
   void enableDebugMode();
   void disableStrictDecks();

@@ -8,7 +8,7 @@ private:
 
 public:
   Card();
-  ~Card();
+  virtual ~Card();
   bool canPlayCard() const;
 };
 

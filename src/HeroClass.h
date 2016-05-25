@@ -10,7 +10,7 @@ private:
 
 public:
   HeroClass();
-  ~HeroClass();
+  virtual ~HeroClass();
 };
 
 #endif // HEARTHSTONE_CL_HEROCLASS_H
