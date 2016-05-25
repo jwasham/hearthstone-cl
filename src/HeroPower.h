@@ -8,6 +8,10 @@ private:
 
 public:
   HeroPower();
+  HeroPower(const HeroPower &h){}; // dummy copy constructor
+  HeroPower &operator=(const HeroPower &h) {
+    return *this;
+  }; // dummy assignment operator
   virtual ~HeroPower();
   bool canUse() const;
   void use(Entity &entity);

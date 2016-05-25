@@ -5,6 +5,10 @@ class Character {
 private:
 public:
   Character();
+  Character(const Character &c){}; // dummy copy constructor
+  Character &operator=(const Character &c) {
+    return *this;
+  }; // dummy assignment operator
   virtual ~Character();
 };
 

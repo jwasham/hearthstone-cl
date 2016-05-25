@@ -14,6 +14,8 @@ private:
 
 public:
   Hero();
+  Hero(const Hero &h){};                            // dummy copy constructor
+  Hero &operator=(const Hero &h) { return *this; }; // dummy assignment operator
   ~Hero();
 };
 

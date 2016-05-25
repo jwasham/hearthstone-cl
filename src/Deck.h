@@ -10,6 +10,8 @@ private:
 
 public:
   Deck();
+  Deck(const Deck &d){};                            // dummy copy constructor
+  Deck &operator=(const Deck &d) { return *this; }; // dummy assignment operator
   virtual ~Deck();
   void addCard(const Card &card);
   void shuffle();

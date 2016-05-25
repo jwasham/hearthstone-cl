@@ -10,6 +10,10 @@ private:
 
 public:
   HeroClass();
+  HeroClass(const HerClass &hc){}; // dummy copy constructor
+  HeroClass &operator=(const HeroClass &hc) {
+    return *this;
+  }; // dummy assignment operator
   virtual ~HeroClass();
 };
 

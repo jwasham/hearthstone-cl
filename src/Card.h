@@ -8,6 +8,8 @@ private:
 
 public:
   Card();
+  Card(const Card &c){};                            // dummy copy constructor
+  Card &operator=(const Card &c) { return *this; }; // dummy assignment operator
   virtual ~Card();
   bool canPlayCard() const;
 };
