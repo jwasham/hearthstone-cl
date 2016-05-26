@@ -58,7 +58,7 @@ Usage:
     - mana
     - graveyard (hidden)
 
-#### Deck
+#### Deck      
 
 - properties
     - CARD_MAX = 30 (for initialization)

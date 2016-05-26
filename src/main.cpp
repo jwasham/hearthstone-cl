@@ -46,7 +46,7 @@ int main(int argc, char *argv[]) {
   if (not strictDeckMode) {
     game.disableStrictDecks();
   }
-  game.setDecks(deck1, deck2);
+  game.start(deck1, deck2);
 
   return EXIT_SUCCESS;
 }
