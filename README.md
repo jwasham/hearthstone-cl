@@ -72,7 +72,7 @@ Usage:
     - drawCard()
     - shuffleIntoDeck(Card & card)
 
-#### Hero
+#### Hero (Character)
 
 - properties
     - name
@@ -110,6 +110,7 @@ Usage:
     - cost
 - methods
     - canPlayCard()
+    - virtual play()
 
 #### Minion (Card)
 
@@ -121,21 +122,41 @@ Usage:
     - battlecry
     - charge
     - taunt
+    - stealth
     - targetable
-- method
-    - battleCry()
-    - hasCharge()
-    - hasTaunt()
-    - canAttack()
-    - attack()
-    - takeDamage(int damage)
-    - die()
+- methods
+    - play()
 
 #### Spell (Card)
 
 - properties
     - name
     - cost
+    - text
+- methods
+    - play()
+    
+#### Minion (Character)
+
+- properties
+    - name
+    - cost
+    - attack
+    - health
+    - battlecry
+    - charge
+    - taunt
+    - stealth
+    - targetable
+- methods
+    - battleCry()
+    - hasCharge()
+    - hasTaunt()
+    - canAttack()
+    - attack()
+    - takeDamage(int damage)
+    - die() - on destroy or health <= 0
+    - remove() - non-death removal
 
 #### Hand
 
