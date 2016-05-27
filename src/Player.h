@@ -1,6 +1,7 @@
 #ifndef HEARTHSTONE_CL_PLAYER_H
 #define HEARTHSTONE_CL_PLAYER_H
 
+#include <string>
 #include "Deck.h"
 
 class Player {
@@ -17,7 +18,7 @@ public:
   Player(const Player &p){};                            // dummy copy constructor
   Player &operator=(const Player &p) { return *this; }; // dummy assignment operator
   virtual ~Player();
-  void setDeck(Deck & deck);
+//  void setDeck(Deck & deck);
 };
 
 

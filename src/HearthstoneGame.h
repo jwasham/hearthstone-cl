@@ -3,7 +3,7 @@
 
 #include <string>
 #include "Player.h"
-#include "Deck.h"
+//#include "Deck.h"
 
 class HearthstoneGame {
 private:
@@ -13,7 +13,8 @@ private:
   Player player2;
   const std::string deckDirectory{"decks"};
   void setupPlayer(const std::string deckFileName, Player & player);
-  void loadDeck(const std::string deckFileName, const std::string path, Deck & deck) const;
+  void loadDeck(const std::string path, const std::string deckFileName, Deck & deck) const;
+  void trimString(std::string & str) const;
   // void deckCheck();
 
 public:
