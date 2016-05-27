@@ -126,13 +126,13 @@ void HearthstoneGame::trimString(std::string & str) const {
 
     if (alphaEnd < 0) {
       if (not isSpace) {
-        alphaEnd = i;
+        alphaEnd = static_cast<int>(i);
         break;
       }
     }
   }
 
-  str = str.substr(alphaStart, alphaEnd);
+  str = str.substr((unsigned long)alphaStart, (unsigned long)alphaEnd);
 }
 
 // bool HearthstoneGame::loadDecks() {
