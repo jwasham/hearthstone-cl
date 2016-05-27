@@ -65,9 +65,6 @@ void HearthstoneGame::loadDeck(const std::string path,
     exit(EXIT_FAILURE);
   }
 
-  //  const int MAX_LINE_LENGTH =80;
-  //  bool firstLine {true};
-  //  char line[MAX_LINE_LENGTH];
   std::string className;
 
   std::getline(inFile, className);
