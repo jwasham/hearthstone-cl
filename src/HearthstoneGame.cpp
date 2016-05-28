@@ -79,13 +79,13 @@ void HearthstoneGame::loadDeck(const std::string path,
     auto starPos = line.find('*');
     if (starPos != std::string::npos) {
       cardName = line.substr(0, starPos - 1);
-      trimString(cardName);
+      Utilities::trimString(cardName);
       cardCount = std::stoi(line.substr(starPos + 1, line.length() - 1));
       std::cout << "Cardname: " << cardName << std::endl;
       std::cout << "Count: " << cardCount << std::endl;
     } else {
       cardName = line;
-      trimString(cardName);
+      Utilities::trimString(cardName);
       cardCount = 1;
       std::cout << "Cardname: " << cardName << std::endl;
       std::cout << "Count: " << cardCount << std::endl;
@@ -99,37 +99,6 @@ void HearthstoneGame::loadDeck(const std::string path,
   //  Card card;
   //
   //  deck.addCard(card);
-}
-
-void HearthstoneGame::trimString(std::string & str) const {
-
-  auto strLength = str.length();
-  int alphaStart = -1;
-  int alphaEnd = -1;
-
-  for (int i = 0; i < strLength; i++) {
-    bool isSpace = std::isspace(str[i]);
-
-    if (alphaStart < 0) {
-      if (not isSpace) {
-        alphaStart = i;
-        break;
-      }
-    }
-  }
-
-  for (auto i = strLength; i > 0; --i) {
-    bool isSpace = std::isspace(str[i]);
-
-    if (alphaEnd < 0) {
-      if (not isSpace) {
-        alphaEnd = static_cast<int>(i);
-        break;
-      }
-    }
-  }
-
-  str = str.substr((unsigned long)alphaStart, (unsigned long)alphaEnd);
 }
 
 // bool HearthstoneGame::loadDecks() {
