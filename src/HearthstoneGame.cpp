@@ -1,6 +1,4 @@
 #include "HearthstoneGame.h"
-#include <fstream>
-#include <iostream>
 
 HearthstoneGame::HearthstoneGame() {}
 HearthstoneGame::~HearthstoneGame() {}
@@ -30,75 +28,16 @@ void HearthstoneGame::setupPlayer(const std::string deckFileName,
   std::cout << "deck location: " << deckLocation << std::endl;
 
   Deck deck;
+  if (debugMode) {
+    deck.enableDebugMode();
+  }
   if (strictDecks) {
     deck.disableStrictMode();
   }
 
-  loadDeck(deckLocation, deckFileName, deck);
+  deck.loadDeck(deckLocation, deckFileName);
 
   // player.deck
-}
-
-void HearthstoneGame::loadDeck(const std::string path,
-                               const std::string deckFileName,
-                               Deck &deck) const {
-
-  using std::ifstream;
-
-  // load from files
-
-  if (debugMode) {
-    std::cout << "Loading deck: " << deckFileName << std::endl;
-  }
-
-  // move to method, save character class and deck to pointers passed as args
-
-  ifstream inFile;
-  inFile.open(path);
-
-  if (inFile.is_open()) {
-    if (debugMode) {
-      std::cout << "Reading decklist " << path << std::endl;
-    }
-  } else {
-    std::cerr << "Failed to open file " << path << std::endl;
-    exit(EXIT_FAILURE);
-  }
-
-  std::string className;
-
-  std::getline(inFile, className);
-
-  std::cout << "Hero class: " << className << std::endl;
-
-  std::string line;
-  std::string cardName;
-  int cardCount = 0;
-  while (std::getline(inFile, line)) {
-    std::cout << "Line: " << line << std::endl;
-    auto starPos = line.find('*');
-    if (starPos != std::string::npos) {
-      cardName = line.substr(0, starPos - 1);
-      Utilities::trimString(cardName);
-      cardCount = std::stoi(line.substr(starPos + 1, line.length() - 1));
-      std::cout << "Cardname: " << cardName << std::endl;
-      std::cout << "Count: " << cardCount << std::endl;
-    } else {
-      cardName = line;
-      Utilities::trimString(cardName);
-      cardCount = 1;
-      std::cout << "Cardname: " << cardName << std::endl;
-      std::cout << "Count: " << cardCount << std::endl;
-    }
-  }
-
-  std::cout << "--------------------" << std::endl;
-
-  // make cards from name
-
-  //  Card card;
-  //
-  //  deck.addCard(card);
 }
 
 // bool HearthstoneGame::loadDecks() {
