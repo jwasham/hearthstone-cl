@@ -78,4 +78,6 @@ void Deck::loadDeck(const std::string path, const std::string deckFileName) {
   //  Card card;
   //
   //  deck.addCard(card);
+
+  inFile.close();
 }
