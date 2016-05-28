@@ -49,22 +49,25 @@ void Deck::loadDeck(const std::string path, const std::string deckFileName) {
 
   std::string line;
   std::string cardName;
+  int lineNumber = 1; // first line with class was already read
   int cardCount = 0;
   while (std::getline(inFile, line)) {
-    std::cout << "Line: " << line << std::endl;
+    lineNumber++;
+    std::cout << "Line " << lineNumber << ": " << line << std::endl;
+
     auto starPos = line.find('*');
     if (starPos != std::string::npos) {
       cardName = line.substr(0, starPos - 1);
       Utilities::trimString(cardName);
       cardCount = std::stoi(line.substr(starPos + 1, line.length() - 1));
-      std::cout << "Cardname: " << cardName << std::endl;
-      std::cout << "Count: " << cardCount << std::endl;
+      std::cout << "  - Card name: " << cardName << std::endl;
+      std::cout << "  - Count: " << cardCount << std::endl;
     } else {
       cardName = line;
       Utilities::trimString(cardName);
       cardCount = 1;
-      std::cout << "Cardname: " << cardName << std::endl;
-      std::cout << "Count: " << cardCount << std::endl;
+      std::cout << "  - Card name: " << cardName << std::endl;
+      std::cout << "  - Count: " << cardCount << std::endl;
     }
   }
 

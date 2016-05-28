@@ -1,2 +1,2 @@
 warrior
-Stonetusk Boar * 30
+Stonetusk Boar    *    30
