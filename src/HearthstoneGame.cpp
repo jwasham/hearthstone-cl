@@ -35,7 +35,7 @@ void HearthstoneGame::setupPlayer(const std::string deckFileName,
     deck.disableStrictMode();
   }
 
-  deck.loadDeck(deckLocation, deckFileName);
+  deck.loadDeckFromFile(deckLocation, deckFileName);
 
   // player.deck
 }

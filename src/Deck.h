@@ -22,7 +22,7 @@ public:
   virtual ~Deck();
   void enableDebugMode();
   void disableStrictMode();
-  void loadDeck(const std::string path, const std::string deckFileName);
+  void loadDeckFromFile(const std::string path, const std::string deckFileName);
   void setHeroClass(const std::string hc);
   void addCard(const Card &card);
   void shuffle();

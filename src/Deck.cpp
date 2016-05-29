@@ -17,7 +17,7 @@ void Deck::shuffle() { std::random_shuffle(cards.begin(), cards.end()); }
 
 void Deck::setHeroClass(const std::string hc) { heroClass = hc; }
 
-void Deck::loadDeck(const std::string path, const std::string deckFileName) {
+void Deck::loadDeckFromFile(const std::string path, const std::string deckFileName) {
 
   using std::ifstream;
 
