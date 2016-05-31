@@ -13,7 +13,7 @@ private:
   bool strictDecks{true};
   std::string heroClass;
 //  const short CARD_MAX{30};
-  std::vector<Card> cards;
+  std::vector<Card> cards; // allows deck to grow/shrinl, supports random_shuffle
 
 public:
   Deck();
