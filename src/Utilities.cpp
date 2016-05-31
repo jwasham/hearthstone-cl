@@ -35,3 +35,9 @@ void Utilities::trimString(std::string &str) {
 
   str = str.substr(startPos, endPos - startPos);
 }
+
+void Utilities::lowerCase(std::string &str) {
+  for (auto i = str.begin(); i != str.end(); i++) {
+    *i = static_cast<char>(tolower(*i));
+  }
+}

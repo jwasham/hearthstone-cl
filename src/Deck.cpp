@@ -45,6 +45,18 @@ void Deck::loadDeckFromFile(const std::string path, const std::string deckFileNa
 
   std::getline(inFile, className);
 
+  Utilities::trimString(className);
+  Utilities::lowerCase(className);
+
+  // @todo check for valid hero class
+
+//  if (not HeroClass::isValidClass(className)) {
+//    std::cerr << "Invalid hero class: " << className << std::endl;
+//    exit(EXIT_FAILURE);
+//  }
+
+  setHeroClass(className);
+
   std::cout << "Hero class: " << className << std::endl;
 
   std::string line;
@@ -77,7 +89,7 @@ void Deck::loadDeckFromFile(const std::string path, const std::string deckFileNa
 
   //  Card card;
   //
-  //  deck.addCard(card);
+  //  addCard(card);
 
   inFile.close();
 }

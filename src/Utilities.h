@@ -10,6 +10,7 @@ public:
     return *this;
   }; // dummy assignment operator
   static void trimString(std::string &str);
+  static void lowerCase(std::string &str);
 };
 
 #endif // HEARTHSTONE_CL_UTILITIES_H
