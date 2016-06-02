@@ -8,7 +8,6 @@ void Deck::enableDebugMode() { debugMode = true; }
 void Deck::disableStrictMode() { strictDecks = false; }
 
 void Deck::addCard(const Card &card) {
-
   cards.push_back(card);
   shuffle();
 }
@@ -17,8 +16,8 @@ void Deck::shuffle() { std::random_shuffle(cards.begin(), cards.end()); }
 
 void Deck::setHeroClass(const std::string hc) { heroClass = hc; }
 
-void Deck::loadDeckFromFile(const std::string path, const std::string deckFileName) {
-
+void Deck::loadDeckFromFile(const std::string path,
+                            const std::string deckFileName) {
   using std::ifstream;
 
   // load from files
@@ -50,10 +49,10 @@ void Deck::loadDeckFromFile(const std::string path, const std::string deckFileNa
 
   // @todo check for valid hero class
 
-//  if (not HeroClass::isValidClass(className)) {
-//    std::cerr << "Invalid hero class: " << className << std::endl;
-//    exit(EXIT_FAILURE);
-//  }
+  //  if (not HeroClass::isValidClass(className)) {
+  //    std::cerr << "Invalid hero class: " << className << std::endl;
+  //    exit(EXIT_FAILURE);
+  //  }
 
   setHeroClass(className);
 
@@ -61,7 +60,7 @@ void Deck::loadDeckFromFile(const std::string path, const std::string deckFileNa
 
   std::string line;
   std::string cardName;
-  int lineNumber = 1; // first line with class was already read
+  int lineNumber = 1;  // first line with class was already read
   int cardCount = 0;
   while (std::getline(inFile, line)) {
     lineNumber++;

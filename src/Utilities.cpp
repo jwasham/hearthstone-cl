@@ -1,7 +1,6 @@
 #include "Utilities.h"
 
 void Utilities::trimString(std::string &str) {
-
   unsigned long strLength = str.length();
   bool foundStart = false;
   bool foundEnd = false;
@@ -28,10 +27,8 @@ void Utilities::trimString(std::string &str) {
     }
   }
 
-  if (not foundStart)
-    startPos = 0;
-  if (not foundEnd)
-    endPos = strLength - 1;
+  if (not foundStart) startPos = 0;
+  if (not foundEnd) endPos = strLength - 1;
 
   str = str.substr(startPos, endPos - startPos);
 }

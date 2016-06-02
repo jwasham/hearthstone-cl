@@ -4,16 +4,18 @@
 #include <string>
 
 class Card {
-private:
+ private:
   std::string name;
   short cost;
 
-public:
+ public:
   Card();
-  Card(const Card &c){};                            // dummy copy constructor
-  Card &operator=(const Card &c) { return *this; }; // dummy assignment operator
+  Card(const Card &c){};  // dummy copy constructor
+  Card &operator=(const Card &c) {
+    return *this;
+  };  // dummy assignment operator
   virtual ~Card();
-//  bool canPlayCard() const;
+  //  bool canPlayCard() const;
 };
 
-#endif // HEARTHSTONE_CL_CARD_H
+#endif  // HEARTHSTONE_CL_CARD_H

@@ -1,24 +1,27 @@
 #ifndef HEARTHSTONE_CL_DECK_H
 #define HEARTHSTONE_CL_DECK_H
 
-#include <iostream>
 #include <fstream>
+#include <iostream>
 #include <vector>
 #include "Card.h"
 #include "Utilities.h"
 
 class Deck {
-private:
+ private:
   bool debugMode{false};
   bool strictDecks{true};
   std::string heroClass;
-//  const short CARD_MAX{30};
-  std::vector<Card> cards; // allows deck to grow/shrinl, supports random_shuffle
+  //  const short CARD_MAX{30};
+  std::vector<Card>
+      cards;  // allows deck to grow/shrinl, supports random_shuffle
 
-public:
+ public:
   Deck();
-  Deck(const Deck &d){};                            // dummy copy constructor
-  Deck &operator=(const Deck &d) { return *this; }; // dummy assignment operator
+  Deck(const Deck &d){};  // dummy copy constructor
+  Deck &operator=(const Deck &d) {
+    return *this;
+  };  // dummy assignment operator
   virtual ~Deck();
   void enableDebugMode();
   void disableStrictMode();
@@ -32,4 +35,4 @@ public:
   //  void shuffleIntoDeck(const Card &card);
 };
 
-#endif // HEARTHSTONE_CL_DECK_H
+#endif  // HEARTHSTONE_CL_DECK_H

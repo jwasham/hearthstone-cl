@@ -1,5 +1,5 @@
-#include "HearthstoneGame.h"
 #include <iostream>
+#include "HearthstoneGame.h"
 
 void showUsage();
 

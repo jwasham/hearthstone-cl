@@ -5,7 +5,6 @@ HearthstoneGame::~HearthstoneGame() {}
 
 void HearthstoneGame::start(const std::string &deck1,
                             const std::string &deck2) {
-
   std::cout << "Here we go." << std::endl;
 
   Player player1;
@@ -21,7 +20,6 @@ void HearthstoneGame::disableStrictDecks() { strictDecks = false; }
 
 void HearthstoneGame::setupPlayer(const std::string deckFileName,
                                   Player &player) {
-
   // @todo replace with OS-appropriate directory separator
   std::string deckLocation = deckDirectory + "/" + deckFileName;
 
