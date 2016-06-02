@@ -1,8 +1,6 @@
 #include <iostream>
 #include "HearthstoneGame.h"
 
-void showUsage();
-
 int main(int argc, char *argv[]) {
   using std::string;
 
@@ -14,7 +12,7 @@ int main(int argc, char *argv[]) {
   const int minArgCount{3};
 
   if (argc < minArgCount) {
-    showUsage();
+    HearthstoneCL::HearthstoneGame::showUsage();
   }
 
   for (int i = 1; i < argc; i++) {
@@ -31,7 +29,7 @@ int main(int argc, char *argv[]) {
   }
 
   if (optionalArgCount + minArgCount < argc) {
-    showUsage();
+    HearthstoneCL::HearthstoneGame::showUsage();
     exit(EXIT_FAILURE);
   }
 
@@ -39,7 +37,7 @@ int main(int argc, char *argv[]) {
   deck1 = argv[optionalArgCount + 1];
   deck2 = argv[optionalArgCount + 2];
 
-  HearthstoneGame game;
+  HearthstoneCL::HearthstoneGame game;
   if (debugMode) {
     game.enableDebugMode();
   }
@@ -49,19 +47,4 @@ int main(int argc, char *argv[]) {
   game.start(deck1, deck2);
 
   return EXIT_SUCCESS;
-}
-
-void showUsage() {
-  using std::cout;
-  using std::endl;
-
-  cout << "Usage: hearthstone_cl [-D] [--strict-deck=false] deck1.txt deck2.txt"
-       << endl;
-  cout << "       (deck files go in \"decks\" directory)" << endl;
-  cout << "       -D = debug mode" << endl;
-  cout << "       --strict-deck=false = allow any deck of 30 cards, no "
-          "restrictions"
-       << endl;
-  cout << "       --strict-deck=true = (default) legal deck of 30 cards"
-       << endl;
 }

@@ -1,5 +1,7 @@
 #include "HearthstoneGame.h"
 
+using namespace HearthstoneCL;
+
 HearthstoneGame::HearthstoneGame() {}
 HearthstoneGame::~HearthstoneGame() {}
 
@@ -36,6 +38,21 @@ void HearthstoneGame::setupPlayer(const std::string deckFileName,
   deck.loadDeckFromFile(deckLocation, deckFileName);
 
   // player.deck
+}
+
+void HearthstoneGame::showUsage() {
+  using std::cout;
+  using std::endl;
+
+  cout << "Usage: hearthstone_cl [-D] [--strict-deck=false] deck1.txt deck2.txt"
+       << endl;
+  cout << "       (deck files go in \"decks\" directory)" << endl;
+  cout << "       -D = debug mode" << endl;
+  cout << "       --strict-deck=false = allow any deck of 30 cards, no "
+          "restrictions"
+       << endl;
+  cout << "       --strict-deck=true = (default) legal deck of 30 cards"
+       << endl;
 }
 
 // bool HearthstoneGame::loadDecks() {

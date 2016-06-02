@@ -4,6 +4,8 @@
 #include <string>
 #include "Player.h"
 
+namespace HearthstoneCL {
+
 class HearthstoneGame {
  private:
   bool debugMode{false};
@@ -15,6 +17,8 @@ class HearthstoneGame {
   // void deckCheck();
 
  public:
+  static void showUsage();
+
   HearthstoneGame();
   HearthstoneGame(const HearthstoneGame &h){};  // dummy copy constructor
   HearthstoneGame &operator=(const HearthstoneGame &h) {
@@ -24,6 +28,7 @@ class HearthstoneGame {
   void start(const std::string &deck1, const std::string &deck2);
   void enableDebugMode();
   void disableStrictDecks();
+};
 };
 
 #endif  // HEARTHSTONE_CL_HEARTHSTONEGAME_H
