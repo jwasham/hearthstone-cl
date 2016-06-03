@@ -26,7 +26,6 @@ Usage:
     
     SYNOPSIS
         hearthstone_cl [-D] [--strict-decks=false] /path/to/deck1.txt /path/to/deck2.txt
-        (deck files go in "decks" directory)
     
     OPTIONS
         -D = debug mode
