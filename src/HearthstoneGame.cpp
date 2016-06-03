@@ -6,34 +6,41 @@ HearthstoneGame::HearthstoneGame() {}
 HearthstoneGame::~HearthstoneGame() {}
 
 void HearthstoneGame::showUsage() {
-  using std::cout;
+
+  if (suppressUsageMessage) {
+    return;
+  }
+
+  using std::cerr;
   using std::endl;
 
-  cout << "Usage: hearthstone_cl [-D] [--strict-decks=false] "
-          "/path/to/deck1.txt /path/to/deck2.txt"
-       << endl;
-  cout << "       (deck files go in \"decks\" directory)" << endl;
-  cout << "       -D = debug mode" << endl;
-  cout << "       --strict-decks=false = allow any deck of 30 cards, no "
-          "restrictions"
-       << endl;
-  cout << "       --strict-decks=true = (default) legal deck of 30 cards"
-       << endl;
+  cerr << "Usage: hearthstone_cl [-D] [--strict-decks=false] "
+      "/path/to/deck1.txt /path/to/deck2.txt"
+  << endl;
+  cerr << "       (deck files go in \"decks\" directory)" << endl;
+  cerr << "       -D = debug mode" << endl;
+  cerr << "       --strict-decks=false = allow any deck of 30 cards, no "
+      "restrictions"
+  << endl;
+  cerr << "       --strict-decks=true = (default) legal deck of 30 cards"
+  << endl;
 }
 
-void HearthstoneGame::setupFromCommandLineOptions(const int argc,
+bool HearthstoneGame::setupFromCommandLineOptions(const int argc,
                                                   char *argv[]) {
+
   using std::string;
 
   bool cmdDebugMode = false;
   bool cmdStrictDecks = true;
-  string deck1 = argv[1];
-  string deck2 = argv[2];
+  string deck1;
+  string deck2;
   int optionalArgCount{0};
   const int minArgCount{3};
 
   if (argc < minArgCount) {
     showUsage();
+    return false;
   }
 
   for (int i = 1; i < argc; i++) {
@@ -51,7 +58,7 @@ void HearthstoneGame::setupFromCommandLineOptions(const int argc,
 
   if (optionalArgCount + minArgCount < argc) {
     showUsage();
-    exit(EXIT_FAILURE);
+    return false;
   }
 
   // always the last 2 arguments
@@ -71,6 +78,12 @@ void HearthstoneGame::setupFromCommandLineOptions(const int argc,
   }
   setDeck1(args.deck1Name);
   setDeck2(args.deck2Name);
+
+  return true;
+}
+
+void HearthstoneGame::suppressUsage() {
+  suppressUsageMessage = true;
 }
 
 void HearthstoneGame::enableDebugMode() { debugMode = true; }
