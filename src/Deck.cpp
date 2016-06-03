@@ -16,27 +16,22 @@ void Deck::shuffle() { std::random_shuffle(cards.begin(), cards.end()); }
 
 void Deck::setHeroClass(const std::string hc) { heroClass = hc; }
 
-void Deck::loadDeckFromFile(const std::string path,
-                            const std::string deckFileName) {
+void Deck::loadDeckFromFile(const std::string deckFilePath) {
   using std::ifstream;
 
   // load from files
 
-  if (debugMode) {
-    std::cout << "Loading deck: " << deckFileName << std::endl;
-  }
+  outputDebugMessage("Loading deck: " + deckFilePath);
 
   // move to method, save character class and deck to pointers passed as args
 
   ifstream inFile;
-  inFile.open(path);
+  inFile.open(deckFilePath);
 
   if (inFile.is_open()) {
-    if (debugMode) {
-      std::cout << "Reading decklist " << path << std::endl;
-    }
+    outputDebugMessage("Reading decklist: " + deckFilePath);
   } else {
-    std::cerr << "Failed to open file " << path << std::endl;
+    std::cerr << "Failed to open file: " << deckFilePath << std::endl;
     exit(EXIT_FAILURE);
   }
 
@@ -56,7 +51,7 @@ void Deck::loadDeckFromFile(const std::string path,
 
   setHeroClass(className);
 
-  std::cout << "Hero class: " << className << std::endl;
+  outputDebugMessage("Hero class: " + className);
 
   std::string line;
   std::string cardName;
@@ -64,25 +59,25 @@ void Deck::loadDeckFromFile(const std::string path,
   int cardCount = 0;
   while (std::getline(inFile, line)) {
     lineNumber++;
-    std::cout << "Line " << lineNumber << ": " << line << std::endl;
+    outputDebugMessage("Line " + std::to_string(lineNumber) + ": " + line);
 
     auto starPos = line.find('*');
     if (starPos != std::string::npos) {
       cardName = line.substr(0, starPos - 1);
       Utilities::trimString(cardName);
       cardCount = std::stoi(line.substr(starPos + 1, line.length() - 1));
-      std::cout << "  - Card name: " << cardName << std::endl;
-      std::cout << "  - Count: " << cardCount << std::endl;
+      outputDebugMessage("  - Card name: " + cardName);
+      outputDebugMessage("  - Count: " + std::to_string(cardCount));
     } else {
       cardName = line;
       Utilities::trimString(cardName);
       cardCount = 1;
-      std::cout << "  - Card name: " << cardName << std::endl;
-      std::cout << "  - Count: " << cardCount << std::endl;
+      outputDebugMessage("  - Card name: " + cardName);
+      outputDebugMessage("  - Count: " + std::to_string(cardCount));
     }
   }
 
-  std::cout << "--------------------" << std::endl;
+  outputDebugMessage("-------------------------------");
 
   // make cards from name
 
@@ -91,4 +86,10 @@ void Deck::loadDeckFromFile(const std::string path,
   //  addCard(card);
 
   inFile.close();
+}
+
+void Deck::outputDebugMessage(const std::string message) {
+  if (debugMode) {
+    std::cout << message << std::endl;
+  }
 }

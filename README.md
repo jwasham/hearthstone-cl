@@ -15,7 +15,7 @@ Quick Start (for now, during initial development):
 1. Clone the project.
 2. cd to project directory.
 3. Build with cmake.
-4. ./hearthstone_cl -D --strict-deck=false deck1.txt deck2.txt
+4. `./hearthstone_cl -D --strict-decks=false /path/to/deck1.txt /path/to/deck2.txt`
 
 ---
 
@@ -25,13 +25,13 @@ Usage:
         hearthstone_cl - a command-line Hearthstone game
     
     SYNOPSIS
-        hearthstone_cl [-D] [--strict-deck=false] deck1.txt deck2.txt
+        hearthstone_cl [-D] [--strict-decks=false] /path/to/deck1.txt /path/to/deck2.txt
         (deck files go in "decks" directory)
     
     OPTIONS
         -D = debug mode
-        --strict-deck=false = allow any deck of 30 cards, no restrictions
-        --strict-deck=true = (default) legal deck of 30 cards
+        --strict-decks=false = allow any deck of 30 cards, no restrictions
+        --strict-decks=true = (default) legal deck of 30 cards
 
 ---
 

@@ -5,90 +5,109 @@ using namespace HearthstoneCL;
 HearthstoneGame::HearthstoneGame() {}
 HearthstoneGame::~HearthstoneGame() {}
 
-void HearthstoneGame::start(const std::string &deck1,
-                            const std::string &deck2) {
-  std::cout << "Here we go." << std::endl;
-
-  Player player1;
-  Player player2;
-
-  setupPlayer(deck1, player1);
-  setupPlayer(deck2, player2);
-}
-
-void HearthstoneGame::enableDebugMode() { debugMode = true; }
-
-void HearthstoneGame::disableStrictDecks() { strictDecks = false; }
-
-void HearthstoneGame::setupPlayer(const std::string deckFileName,
-                                  Player &player) {
-  // @todo replace with OS-appropriate directory separator
-  std::string deckLocation = deckDirectory + "/" + deckFileName;
-
-  std::cout << "deck location: " << deckLocation << std::endl;
-
-  Deck deck;
-  if (debugMode) {
-    deck.enableDebugMode();
-  }
-  if (strictDecks) {
-    deck.disableStrictMode();
-  }
-
-  deck.loadDeckFromFile(deckLocation, deckFileName);
-
-  // player.deck
-}
-
 void HearthstoneGame::showUsage() {
   using std::cout;
   using std::endl;
 
-  cout << "Usage: hearthstone_cl [-D] [--strict-deck=false] deck1.txt deck2.txt"
+  cout << "Usage: hearthstone_cl [-D] [--strict-decks=false] "
+          "/path/to/deck1.txt /path/to/deck2.txt"
        << endl;
   cout << "       (deck files go in \"decks\" directory)" << endl;
   cout << "       -D = debug mode" << endl;
-  cout << "       --strict-deck=false = allow any deck of 30 cards, no "
+  cout << "       --strict-decks=false = allow any deck of 30 cards, no "
           "restrictions"
        << endl;
-  cout << "       --strict-deck=true = (default) legal deck of 30 cards"
+  cout << "       --strict-decks=true = (default) legal deck of 30 cards"
        << endl;
 }
 
-// bool HearthstoneGame::loadDecks() {
-//
-//  using std::ifstream;
-//
-//  // load from files
-//
-//  if (debugMode) {
-//    std::cout << "Loading decks: " << deck1Location << " and " <<
-//    deck2Location
-//              << std::endl;
-//  }
-//
-//  // move to method, save character class and deck to pointers passed as args
-//
-//  ifstream inFile;
-//  inFile.open(deck1Location);
-//
-//  if (inFile.is_open()) {
-//    if (debugMode) {
-//      std::cout << "Reading decklist " << deck1Location << std::endl;
-//    }
-//  } else {
-//    std::cerr << "Failed to open file " << deck1Location << std::endl;
-//    exit(EXIT_FAILURE);
-//  }
-//
-//  return true;
-//}
+void HearthstoneGame::setupFromCommandLineOptions(const int argc,
+                                                  char *argv[]) {
+  using std::string;
 
-// void HearthstoneGame::getDeck(deckLocation, char * charClass, ) {
-//
-//
-//
-//}
+  bool cmdDebugMode = false;
+  bool cmdStrictDecks = true;
+  string deck1 = argv[1];
+  string deck2 = argv[2];
+  int optionalArgCount{0};
+  const int minArgCount{3};
+
+  if (argc < minArgCount) {
+    showUsage();
+  }
+
+  for (int i = 1; i < argc; i++) {
+    if (strcmp(argv[i], "-D") == 0) {
+      optionalArgCount++;
+      cmdDebugMode = true;
+    } else if (strcmp(argv[i], "--strict-decks=false") == 0) {
+      optionalArgCount++;
+      cmdStrictDecks = false;
+    } else if (strcmp(argv[i], "--strict-decks=true") == 0) {
+      optionalArgCount++;
+      cmdStrictDecks = true;
+    }
+  }
+
+  if (optionalArgCount + minArgCount < argc) {
+    showUsage();
+    exit(EXIT_FAILURE);
+  }
+
+  // always the last 2 arguments
+  deck1 = argv[optionalArgCount + 1];
+  deck2 = argv[optionalArgCount + 2];
+
+  args.debugMode = cmdDebugMode;
+  args.strictDecks = cmdStrictDecks;
+  args.deck1Name = deck1;
+  args.deck2Name = deck2;
+
+  if (args.debugMode) {
+    enableDebugMode();
+  }
+  if (not args.strictDecks) {
+    disableStrictDecks();
+  }
+  setDeck1(args.deck1Name);
+  setDeck2(args.deck2Name);
+}
+
+void HearthstoneGame::enableDebugMode() { debugMode = true; }
+
+void HearthstoneGame::disableStrictDecks() { strictDeckMode = false; }
+
+void HearthstoneGame::setDeck1(const std::string &deck) {
+  setupPlayer(deck, player1);
+}
+
+void HearthstoneGame::setDeck2(const std::string &deck) {
+  setupPlayer(deck, player2);
+}
+
+void HearthstoneGame::setupPlayer(const std::string deckFilePath,
+                                  Player &player) {
+  Deck deck;
+  if (debugMode) {
+    deck.enableDebugMode();
+  }
+  if (not strictDeckMode) {
+    deck.disableStrictMode();
+  }
+
+  deck.loadDeckFromFile(deckFilePath);
+
+  // player.deck
+}
+
+void HearthstoneGame::start() {
+  // make sure there is deck1
+  // make sure there is deck2
+
+  std::cout << "Here we go." << std::endl;
+
+  // start the game
+}
 
 // void HearthstoneGame::deckCheck() {
 //

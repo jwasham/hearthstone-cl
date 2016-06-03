@@ -13,8 +13,9 @@ class Deck {
   bool strictDecks{true};
   std::string heroClass;
   //  const short CARD_MAX{30};
-  std::vector<Card>
-      cards;  // allows deck to grow/shrinl, supports random_shuffle
+  // allows deck to grow/shrink, supports random_shuffle
+  std::vector<Card> cards;
+  void outputDebugMessage(const std::string message);
 
  public:
   Deck();
@@ -25,7 +26,7 @@ class Deck {
   virtual ~Deck();
   void enableDebugMode();
   void disableStrictMode();
-  void loadDeckFromFile(const std::string path, const std::string deckFileName);
+  void loadDeckFromFile(const std::string deckFilePath);
   void setHeroClass(const std::string hc);
   void addCard(const Card &card);
   void shuffle();
