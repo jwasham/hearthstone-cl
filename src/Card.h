@@ -4,10 +4,6 @@
 #include <string>
 
 class Card {
- private:
-  std::string name;
-  short cost;
-
  public:
   Card();
   Card(const Card &c){};  // dummy copy constructor
@@ -16,6 +12,10 @@ class Card {
   };  // dummy assignment operator
   virtual ~Card();
   //  bool canPlayCard() const;
+
+private:
+  short cost;
+  std::string name;
 };
 
 #endif  // HEARTHSTONE_CL_CARD_H

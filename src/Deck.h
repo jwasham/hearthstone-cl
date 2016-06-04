@@ -27,13 +27,14 @@ class Deck {
   //  void shuffleIntoDeck(const Card &card);
 
  private:
+  //  const short CARD_MAX{30};
+  // allows deck to grow/shrink, supports random_shuffle
+  void outputDebugMessage(const std::string message);
+
   bool debugMode{false};
   bool strictDecks{true};
   std::string heroClass;
-  //  const short CARD_MAX{30};
-  // allows deck to grow/shrink, supports random_shuffle
   std::vector<Card> cards;
-  void outputDebugMessage(const std::string message);
 };
 
 #endif  // HEARTHSTONE_CL_DECK_H
