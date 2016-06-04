@@ -14,17 +14,7 @@ struct CommandLineArguments {
 };
 
 class HearthstoneGame {
- private:
-  bool suppressUsageMessage{false};
-  bool debugMode{false};
-  bool strictDeckMode{true};
-  Player player1;
-  Player player2;
-  void setupPlayer(const std::string deckFilePath, Player &player);
-  // void deckCheck();
-
  public:
-  void showUsage();
   CommandLineArguments args;
   HearthstoneGame();
   HearthstoneGame(const HearthstoneGame &h){};  // dummy copy constructor
@@ -32,13 +22,22 @@ class HearthstoneGame {
     return *this;
   };  // dummy assignment operator
   virtual ~HearthstoneGame();
+  void showUsage();
   bool setupFromCommandLineOptions(const int argc, char *argv[]);
   void suppressUsage();
   void enableDebugMode();
   void disableStrictDecks();
-  void setDeck1(const std::string &deck);
-  void setDeck2(const std::string &deck);
+  void setDeck1(const std::string deckPath);
+  void setDeck2(const std::string deckPath);
   void start();
+
+ private:
+  bool suppressUsageMessage{false};
+  bool debugMode{false};
+  bool strictDeckMode{true};
+  Player player1;
+  Player player2;
+  void setupPlayer(const std::string deckFilePath, Player *player);
 };
 }
 

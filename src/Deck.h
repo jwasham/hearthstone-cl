@@ -8,15 +8,6 @@
 #include "Utilities.h"
 
 class Deck {
- private:
-  bool debugMode{false};
-  bool strictDecks{true};
-  std::string heroClass;
-  //  const short CARD_MAX{30};
-  // allows deck to grow/shrink, supports random_shuffle
-  std::vector<Card> cards;
-  void outputDebugMessage(const std::string message);
-
  public:
   Deck();
   Deck(const Deck &d){};  // dummy copy constructor
@@ -34,6 +25,15 @@ class Deck {
   //  bool canDrawCard() const;
   //  Card drawCard();
   //  void shuffleIntoDeck(const Card &card);
+
+ private:
+  bool debugMode{false};
+  bool strictDecks{true};
+  std::string heroClass;
+  //  const short CARD_MAX{30};
+  // allows deck to grow/shrink, supports random_shuffle
+  std::vector<Card> cards;
+  void outputDebugMessage(const std::string message);
 };
 
 #endif  // HEARTHSTONE_CL_DECK_H

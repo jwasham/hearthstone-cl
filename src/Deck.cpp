@@ -93,3 +93,17 @@ void Deck::outputDebugMessage(const std::string message) {
     std::cout << message << std::endl;
   }
 }
+
+// void Deck::deckCheck() {
+//
+//    const int maxDeckSize {30};
+//    int maxPerLegendary {1};
+//    int maxPerNonLegendary {2};
+//
+//    if (not strictDecks) {
+//        maxPerLegendary = maxDeckSize;
+//        maxPerNonLegendary = maxDeckSize;
+//    }
+//
+//    return true;
+//}
