@@ -1,15 +1,16 @@
 #ifndef HEARTHSTONE_CL_CHARACTER_H
 #define HEARTHSTONE_CL_CHARACTER_H
 
+namespace HearthstoneCharacter {
+
 class Character {
-private:
-public:
+ public:
   Character();
-  Character(const Character &c){}; // dummy copy constructor
-  Character &operator=(const Character &c) {
-    return *this;
-  }; // dummy assignment operator
+  Character(const Character &c) = delete;
+  Character &operator=(const Character &c) = delete;
   virtual ~Character();
 };
 
-#endif // HEARTHSTONE_CL_CHARACTER_H
+}  // namespace HearthstoneCharacter
+
+#endif  // HEARTHSTONE_CL_CHARACTER_H

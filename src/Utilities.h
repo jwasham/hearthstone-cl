@@ -3,14 +3,16 @@
 
 #include <string>
 
+namespace General {
+
 class Utilities {
  public:
-  Utilities(const Utilities &h){};  // dummy copy constructor
-  Utilities &operator=(const Utilities &h) {
-    return *this;
-  };  // dummy assignment operator
-  static void trimString(std::string &str);
-  static void lowerCase(std::string &str);
+  Utilities(const Utilities &) = delete;
+  Utilities &operator=(const Utilities &) = delete;
+  static void TrimString(std::string &str);
+  static void LowerCase(std::string &str);
 };
+
+} // namespace General
 
 #endif  // HEARTHSTONE_CL_UTILITIES_H

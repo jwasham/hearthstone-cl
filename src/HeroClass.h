@@ -3,18 +3,20 @@
 
 #include "HeroPower.h"
 
+namespace HearthstoneHeroClass {
+
 class HeroClass {
-private:
+ private:
   std::string name;
   HeroPower heroPower;
 
-public:
+ public:
   HeroClass();
-  HeroClass(const HerClass &hc){}; // dummy copy constructor
-  HeroClass &operator=(const HeroClass &hc) {
-    return *this;
-  }; // dummy assignment operator
+  HeroClass(const HerClass &hc) = delete;
+  HeroClass &operator=(const HeroClass &hc) = delete;
   virtual ~HeroClass();
 };
 
-#endif // HEARTHSTONE_CL_HEROCLASS_H
+}  // namespace HearthstoneHeroClass
+
+#endif  // HEARTHSTONE_CL_HEROCLASS_H

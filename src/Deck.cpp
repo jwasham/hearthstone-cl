@@ -9,7 +9,7 @@ void Deck::EnableDebugMode() { debug_mode_ = true; }
 
 void Deck::DisableStrictMode() { strict_decks_ = false; }
 
-void Deck::AddCard(const Card &card) {
+void Deck::AddCard(const HearthstoneCard::Card &card) {
   cards_.push_back(card);
   Shuffle();
 }
@@ -41,8 +41,8 @@ void Deck::LoadDeckFromFile(const std::string deckFilePath) {
 
   std::getline(inFile, className);
 
-  Utilities::trimString(className);
-  Utilities::lowerCase(className);
+  General::Utilities::TrimString(className);
+  General::Utilities::LowerCase(className);
 
   // @todo check for valid hero class
 
@@ -66,13 +66,13 @@ void Deck::LoadDeckFromFile(const std::string deckFilePath) {
     auto starPos = line.find('*');
     if (starPos != std::string::npos) {
       cardName = line.substr(0, starPos - 1);
-      Utilities::trimString(cardName);
+      General::Utilities::TrimString(cardName);
       cardCount = std::stoi(line.substr(starPos + 1, line.length() - 1));
       OutputDebugMessage("  - Card name: " + cardName);
       OutputDebugMessage("  - Count: " + std::to_string(cardCount));
     } else {
       cardName = line;
-      Utilities::trimString(cardName);
+      General::Utilities::TrimString(cardName);
       cardCount = 1;
       OutputDebugMessage("  - Card name: " + cardName);
       OutputDebugMessage("  - Count: " + std::to_string(cardCount));

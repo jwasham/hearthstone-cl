@@ -19,7 +19,7 @@ class Deck {
   void DisableStrictMode();
   void LoadDeckFromFile(const std::string deckFilePath);
   void SetHeroClass(const std::string hc);
-  void AddCard(const Card &card);
+  void AddCard(const HearthstoneCard::Card &card);
   void Shuffle();
   //  Card *GetRandomCards(const int count);
   //  bool CanDrawCard() const;
@@ -34,7 +34,7 @@ class Deck {
   bool debug_mode_{false};
   bool strict_decks_{true};
   std::string hero_class_;
-  std::vector<Card> cards_;
+  std::vector<HearthstoneCard::Card> cards_;
 };
 
 }  // namespace HearthstoneDeck

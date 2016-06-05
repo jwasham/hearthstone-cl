@@ -5,18 +5,22 @@
 
 // http://www.hearthhead.com/heroes
 
-class Hero : public Character {
-private:
-  std::string name;
-  HeroClass heroClass;
-  int health;
-  int armor;
+namespace HearthstoneHero {
 
-public:
+class Hero : public Character {
+ public:
   Hero();
-  Hero(const Hero &h){};                            // dummy copy constructor
-  Hero &operator=(const Hero &h) { return *this; }; // dummy assignment operator
+  Hero(const Hero &h) = delete;
+  Hero &operator=(const Hero &h) = delete;
   ~Hero();
+
+ private:
+  std::string name_;
+  HeroClass hero_class_;
+  int health_;
+  int armor_;
 };
 
-#endif // HEARTHSTONE_CL_HERO_H
+}  // namespace HearthstoneHero
+
+#endif  // HEARTHSTONE_CL_HERO_H

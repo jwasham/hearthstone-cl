@@ -1,6 +1,8 @@
 #include "Utilities.h"
 
-void Utilities::trimString(std::string &str) {
+namespace General {
+
+void Utilities::TrimString(std::string &str) {
   unsigned long strLength = str.length();
   bool foundStart = false;
   bool foundEnd = false;
@@ -33,8 +35,10 @@ void Utilities::trimString(std::string &str) {
   str = str.substr(startPos, endPos - startPos);
 }
 
-void Utilities::lowerCase(std::string &str) {
+void Utilities::LowerCase(std::string &str) {
   for (auto i = str.begin(); i != str.end(); i++) {
     *i = static_cast<char>(tolower(*i));
   }
 }
+
+}  // namespace General

@@ -3,19 +3,21 @@
 
 #include <string>
 
+namespace HearthstoneCard {
+
 class Card {
  public:
   Card();
-  Card(const Card &c){};  // dummy copy constructor
-  Card &operator=(const Card &c) {
-    return *this;
-  };  // dummy assignment operator
+//  Card(const Card &c) = delete;
+//  Card &operator=(const Card &c) = delete;
   virtual ~Card();
   //  bool canPlayCard() const;
 
-private:
-  short cost;
-  std::string name;
+ private:
+  int cost_;
+  std::string name_;
 };
+
+}  // namespace HearthstoneCard
 
 #endif  // HEARTHSTONE_CL_CARD_H
