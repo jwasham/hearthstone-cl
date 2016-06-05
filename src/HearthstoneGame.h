@@ -17,10 +17,8 @@ class HearthstoneGame {
  public:
   CommandLineArguments args_;
   HearthstoneGame();
-  HearthstoneGame(const HearthstoneGame &){};  // dummy copy constructor
-  HearthstoneGame &operator=(const HearthstoneGame &) {
-    return *this;
-  };  // dummy assignment operator
+  HearthstoneGame(const HearthstoneGame &) = delete;
+  HearthstoneGame &operator=(const HearthstoneGame &) = delete;
   virtual ~HearthstoneGame();
   void ShowUsage();
   bool SetupFromCommandLineOptions(const int argc, char **argv);
@@ -35,9 +33,9 @@ class HearthstoneGame {
   bool suppress_usage_message_{false};
   bool debug_mode_{false};
   bool strict_dck_mode_{true};
-  Player player1_;
-  Player player2_;
-  void SetupPlayer(const std::string deckFilePath, Player *player);
+  HearthstonePlayer::Player player1_;
+  HearthstonePlayer::Player player2_;
+  void SetupPlayer(const std::string deckFilePath, HearthstonePlayer::Player *player);
 };
 
 }  // namespace HearthstoneCL

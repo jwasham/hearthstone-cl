@@ -1,27 +1,29 @@
 #include "Deck.h"
 
+namespace HearthstoneDeck {
+
 Deck::Deck() {}
 Deck::~Deck() {}
 
-void Deck::enableDebugMode() { debugMode = true; }
+void Deck::EnableDebugMode() { debug_mode_ = true; }
 
-void Deck::disableStrictMode() { strictDecks = false; }
+void Deck::DisableStrictMode() { strict_decks_ = false; }
 
-void Deck::addCard(const Card &card) {
-  cards.push_back(card);
-  shuffle();
+void Deck::AddCard(const Card &card) {
+  cards_.push_back(card);
+  Shuffle();
 }
 
-void Deck::shuffle() { std::random_shuffle(cards.begin(), cards.end()); }
+void Deck::Shuffle() { std::random_shuffle(cards_.begin(), cards_.end()); }
 
-void Deck::setHeroClass(const std::string hc) { heroClass = hc; }
+void Deck::SetHeroClass(const std::string hc) { hero_class_ = hc; }
 
-void Deck::loadDeckFromFile(const std::string deckFilePath) {
+void Deck::LoadDeckFromFile(const std::string deckFilePath) {
   using std::ifstream;
 
   // load from files
 
-  outputDebugMessage("Loading deck: " + deckFilePath);
+  OutputDebugMessage("Loading deck: " + deckFilePath);
 
   // move to method, save character class and deck to pointers passed as args_
 
@@ -29,7 +31,7 @@ void Deck::loadDeckFromFile(const std::string deckFilePath) {
   inFile.open(deckFilePath);
 
   if (inFile.is_open()) {
-    outputDebugMessage("Reading decklist: " + deckFilePath);
+    OutputDebugMessage("Reading decklist: " + deckFilePath);
   } else {
     std::cerr << "Failed to open file: " << deckFilePath << std::endl;
     exit(EXIT_FAILURE);
@@ -49,9 +51,9 @@ void Deck::loadDeckFromFile(const std::string deckFilePath) {
   //    exit(EXIT_FAILURE);
   //  }
 
-  setHeroClass(className);
+  SetHeroClass(className);
 
-  outputDebugMessage("Hero class: " + className);
+  OutputDebugMessage("Hero class: " + className);
 
   std::string line;
   std::string cardName;
@@ -59,25 +61,25 @@ void Deck::loadDeckFromFile(const std::string deckFilePath) {
   int cardCount = 0;
   while (std::getline(inFile, line)) {
     lineNumber++;
-    outputDebugMessage("Line " + std::to_string(lineNumber) + ": " + line);
+    OutputDebugMessage("Line " + std::to_string(lineNumber) + ": " + line);
 
     auto starPos = line.find('*');
     if (starPos != std::string::npos) {
       cardName = line.substr(0, starPos - 1);
       Utilities::trimString(cardName);
       cardCount = std::stoi(line.substr(starPos + 1, line.length() - 1));
-      outputDebugMessage("  - Card name: " + cardName);
-      outputDebugMessage("  - Count: " + std::to_string(cardCount));
+      OutputDebugMessage("  - Card name: " + cardName);
+      OutputDebugMessage("  - Count: " + std::to_string(cardCount));
     } else {
       cardName = line;
       Utilities::trimString(cardName);
       cardCount = 1;
-      outputDebugMessage("  - Card name: " + cardName);
-      outputDebugMessage("  - Count: " + std::to_string(cardCount));
+      OutputDebugMessage("  - Card name: " + cardName);
+      OutputDebugMessage("  - Count: " + std::to_string(cardCount));
     }
   }
 
-  outputDebugMessage("-------------------------------");
+  OutputDebugMessage("-------------------------------");
 
   // make cards from name
 
@@ -88,8 +90,8 @@ void Deck::loadDeckFromFile(const std::string deckFilePath) {
   inFile.close();
 }
 
-void Deck::outputDebugMessage(const std::string message) {
-  if (debugMode) {
+void Deck::OutputDebugMessage(const std::string message) {
+  if (debug_mode_) {
     std::cout << message << std::endl;
   }
 }
@@ -107,3 +109,5 @@ void Deck::outputDebugMessage(const std::string message) {
 //
 //    return true;
 //}
+
+}  // namespace HearthstoneDeck

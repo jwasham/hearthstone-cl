@@ -94,16 +94,16 @@ void HearthstoneGame::SetDeck2(const std::string deckPath) {
 }
 
 void HearthstoneGame::SetupPlayer(const std::string deckFilePath,
-                                  Player *player) {
-  Deck deck;
+                                  HearthstonePlayer::Player *player) {
+  HearthstoneDeck::Deck deck;
   if (debug_mode_) {
-    deck.enableDebugMode();
+    deck.EnableDebugMode();
   }
   if (not strict_dck_mode_) {
-    deck.disableStrictMode();
+    deck.DisableStrictMode();
   }
 
-  deck.loadDeckFromFile(deckFilePath);
+  deck.LoadDeckFromFile(deckFilePath);
 
   // player.deck
 }

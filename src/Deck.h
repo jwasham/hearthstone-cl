@@ -7,34 +7,36 @@
 #include "Card.h"
 #include "Utilities.h"
 
+namespace HearthstoneDeck {
+
 class Deck {
  public:
   Deck();
-  Deck(const Deck &d){};  // dummy copy constructor
-  Deck &operator=(const Deck &d) {
-    return *this;
-  };  // dummy assignment operator
+  Deck(const Deck &d) = delete;
+  Deck &operator=(const Deck &d) = delete;
   virtual ~Deck();
-  void enableDebugMode();
-  void disableStrictMode();
-  void loadDeckFromFile(const std::string deckFilePath);
-  void setHeroClass(const std::string hc);
-  void addCard(const Card &card);
-  void shuffle();
-  //  Card *getRandomCards(const int count);
-  //  bool canDrawCard() const;
-  //  Card drawCard();
-  //  void shuffleIntoDeck(const Card &card);
+  void EnableDebugMode();
+  void DisableStrictMode();
+  void LoadDeckFromFile(const std::string deckFilePath);
+  void SetHeroClass(const std::string hc);
+  void AddCard(const Card &card);
+  void Shuffle();
+  //  Card *GetRandomCards(const int count);
+  //  bool CanDrawCard() const;
+  //  Card DrawCard();
+  //  void ShuffleIntoDeck(const Card &card);
 
  private:
   //  const short CARD_MAX{30};
   // allows deck to grow/shrink, supports random_shuffle
-  void outputDebugMessage(const std::string message);
+  void OutputDebugMessage(const std::string message);
 
-  bool debugMode{false};
-  bool strictDecks{true};
-  std::string heroClass;
-  std::vector<Card> cards;
+  bool debug_mode_{false};
+  bool strict_decks_{true};
+  std::string hero_class_;
+  std::vector<Card> cards_;
 };
+
+}  // namespace HearthstoneDeck
 
 #endif  // HEARTHSTONE_CL_DECK_H
