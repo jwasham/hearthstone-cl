@@ -175,7 +175,7 @@ Usage:
         - no more than one of each legendary
         - no more than 2 of each other card
         - card count = 30 cards
-- start game
+- Start game
     - greetings
     - coin flip
         - one player gets 3 cards, goes first, no coin

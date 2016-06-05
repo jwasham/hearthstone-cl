@@ -23,7 +23,7 @@ void Deck::loadDeckFromFile(const std::string deckFilePath) {
 
   outputDebugMessage("Loading deck: " + deckFilePath);
 
-  // move to method, save character class and deck to pointers passed as args
+  // move to method, save character class and deck to pointers passed as args_
 
   ifstream inFile;
   inFile.open(deckFilePath);
@@ -100,7 +100,7 @@ void Deck::outputDebugMessage(const std::string message) {
 //    int maxPerLegendary {1};
 //    int maxPerNonLegendary {2};
 //
-//    if (not strictDecks) {
+//    if (not strict_decks) {
 //        maxPerLegendary = maxDeckSize;
 //        maxPerNonLegendary = maxDeckSize;
 //    }

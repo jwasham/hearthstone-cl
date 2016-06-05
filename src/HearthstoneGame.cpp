@@ -1,12 +1,12 @@
 #include "HearthstoneGame.h"
 
-using namespace HearthstoneCL;
+namespace HearthstoneCL {
 
 HearthstoneGame::HearthstoneGame() {}
 HearthstoneGame::~HearthstoneGame() {}
 
-void HearthstoneGame::showUsage() {
-  if (suppressUsageMessage) {
+void HearthstoneGame::ShowUsage() {
+  if (suppress_usage_message_) {
     return;
   }
 
@@ -25,8 +25,7 @@ void HearthstoneGame::showUsage() {
        << endl;
 }
 
-bool HearthstoneGame::setupFromCommandLineOptions(const int argc,
-                                                  char *argv[]) {
+bool HearthstoneGame::SetupFromCommandLineOptions(const int argc, char **argv) {
   using std::string;
 
   bool cmdDebugMode = false;
@@ -37,7 +36,7 @@ bool HearthstoneGame::setupFromCommandLineOptions(const int argc,
   const int minArgCount{3};
 
   if (argc < minArgCount) {
-    showUsage();
+    ShowUsage();
     return false;
   }
 
@@ -55,7 +54,7 @@ bool HearthstoneGame::setupFromCommandLineOptions(const int argc,
   }
 
   if (optionalArgCount + minArgCount < argc) {
-    showUsage();
+    ShowUsage();
     return false;
   }
 
@@ -63,44 +62,44 @@ bool HearthstoneGame::setupFromCommandLineOptions(const int argc,
   deck1 = argv[optionalArgCount + 1];
   deck2 = argv[optionalArgCount + 2];
 
-  args.debugMode = cmdDebugMode;
-  args.strictDecks = cmdStrictDecks;
-  args.deck1Name = deck1;
-  args.deck2Name = deck2;
+  args_.debug_mode = cmdDebugMode;
+  args_.strict_decks = cmdStrictDecks;
+  args_.deck1_name = deck1;
+  args_.deck2_name = deck2;
 
-  if (args.debugMode) {
-    enableDebugMode();
+  if (args_.debug_mode) {
+    EnableDebugMode();
   }
-  if (not args.strictDecks) {
-    disableStrictDecks();
+  if (not args_.strict_decks) {
+    DisableStrictDecks();
   }
-  setDeck1(args.deck1Name);
-  setDeck2(args.deck2Name);
+  SetDeck1(args_.deck1_name);
+  SetDeck2(args_.deck2_name);
 
   return true;
 }
 
-void HearthstoneGame::suppressUsage() { suppressUsageMessage = true; }
+void HearthstoneGame::SuppressUsage() { suppress_usage_message_ = true; }
 
-void HearthstoneGame::enableDebugMode() { debugMode = true; }
+void HearthstoneGame::EnableDebugMode() { debug_mode_ = true; }
 
-void HearthstoneGame::disableStrictDecks() { strictDeckMode = false; }
+void HearthstoneGame::DisableStrictDecks() { strict_dck_mode_ = false; }
 
-void HearthstoneGame::setDeck1(const std::string deckPath) {
-  setupPlayer(deckPath, &player1);
+void HearthstoneGame::SetDeck1(const std::string deckPath) {
+  SetupPlayer(deckPath, &player1_);
 }
 
-void HearthstoneGame::setDeck2(const std::string deckPath) {
-  setupPlayer(deckPath, &player2);
+void HearthstoneGame::SetDeck2(const std::string deckPath) {
+  SetupPlayer(deckPath, &player2_);
 }
 
-void HearthstoneGame::setupPlayer(const std::string deckFilePath,
+void HearthstoneGame::SetupPlayer(const std::string deckFilePath,
                                   Player *player) {
   Deck deck;
-  if (debugMode) {
+  if (debug_mode_) {
     deck.enableDebugMode();
   }
-  if (not strictDeckMode) {
+  if (not strict_dck_mode_) {
     deck.disableStrictMode();
   }
 
@@ -109,11 +108,12 @@ void HearthstoneGame::setupPlayer(const std::string deckFilePath,
   // player.deck
 }
 
-void HearthstoneGame::start() {
+void HearthstoneGame::Start() {
   // make sure there is deck1
   // make sure there is deck2
 
   std::cout << "Here we go." << std::endl;
 
-  // start the game
+  // Start the game
 }
+}  // namespace HearthstoneCL

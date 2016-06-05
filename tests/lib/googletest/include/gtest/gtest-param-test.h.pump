@@ -238,7 +238,7 @@ namespace testing {
 //     to contain any elements.
 //
 template <typename T, typename IncrementT>
-internal::ParamGenerator<T> Range(T start, T end, IncrementT step) {
+internal::ParamGenerator<T> Range(T Start, T end, IncrementT step) {
   return internal::ParamGenerator<T>(
       new internal::RangeGenerator<T, IncrementT>(start, end, step));
 }

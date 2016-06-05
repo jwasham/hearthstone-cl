@@ -482,7 +482,7 @@ There is one more pitfall, though. If you use Google Test as a static library (t
 
 # Where to Go from Here #
 
-Congratulations! You've learned the Google Test basics. You can start writing
+Congratulations! You've learned the Google Test basics. You can Start writing
 and running Google Test tests, read some [samples](Samples.md), or continue with
 [AdvancedGuide](V1_5_AdvancedGuide.md), which describes many more useful Google Test features.
 

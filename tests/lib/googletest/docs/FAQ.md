@@ -959,7 +959,7 @@ Have you read a
 [warning](Primer.md#important-note-for-visual-c-users) on
 the Google Test Primer page?
 
-## I want to use Google Test with Visual Studio but don't know where to start. ##
+## I want to use Google Test with Visual Studio but don't know where to Start. ##
 Many people are in your position and one of the posted his solution to
 our mailing list.
 

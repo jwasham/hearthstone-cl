@@ -46,7 +46,7 @@ maintain.
 
 ## Examples ##
 
-The following Pump code (where meta keywords start with `$`, `[[` and `]]` are meta brackets, and `$$` starts a meta comment that ends with the line):
+The following Pump code (where meta keywords Start with `$`, `[[` and `]]` are meta brackets, and `$$` starts a meta comment that ends with the line):
 
 ```
 $var n = 3     $$ Defines a meta variable n.

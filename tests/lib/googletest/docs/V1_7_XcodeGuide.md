@@ -46,7 +46,7 @@ The next step is to build and add the gtest.framework to your own project. This 
 
 # Make a Test Target #
 
-To start writing tests, make a new "Shell Tool" target. This target template is available under BSD, Cocoa, or Carbon. Add your unit test source code to the "Compile Sources" build phase of the target.
+To Start writing tests, make a new "Shell Tool" target. This target template is available under BSD, Cocoa, or Carbon. Add your unit test source code to the "Compile Sources" build phase of the target.
 
 Next, you'll want to add gtest.framework in two different ways, depending upon which option you chose above.
 
