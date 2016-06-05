@@ -8,8 +8,8 @@ namespace HearthstoneCard {
 class Card {
  public:
   Card();
-//  Card(const Card &c) = delete;
-//  Card &operator=(const Card &c) = delete;
+  //  Card(const Card &c) = delete;
+  //  Card &operator=(const Card &c) = delete;
   virtual ~Card();
   //  bool canPlayCard() const;
 

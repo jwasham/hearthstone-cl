@@ -83,7 +83,7 @@ void HearthstoneGame::SuppressUsage() { suppress_usage_message_ = true; }
 
 void HearthstoneGame::EnableDebugMode() { debug_mode_ = true; }
 
-void HearthstoneGame::DisableStrictDecks() { strict_dck_mode_ = false; }
+void HearthstoneGame::DisableStrictDecks() { strict_deck_mode_ = false; }
 
 void HearthstoneGame::SetDeck1(const std::string deckPath) {
   SetupPlayer(deckPath, &player1_);
@@ -99,7 +99,7 @@ void HearthstoneGame::SetupPlayer(const std::string deckFilePath,
   if (debug_mode_) {
     deck.EnableDebugMode();
   }
-  if (not strict_dck_mode_) {
+  if (not strict_deck_mode_) {
     deck.DisableStrictMode();
   }
 

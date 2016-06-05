@@ -7,6 +7,13 @@
 namespace HearthstonePlayer {
 
 class Player {
+ public:
+  Player();
+  Player(const Player &p) = delete;
+  Player &operator=(const Player &p) = delete;
+  virtual ~Player();
+  //  void setDeck(Deck & deck);
+
  private:
   std::string name_;
   // hero (Hero class)
@@ -15,12 +22,6 @@ class Player {
   //  board half
   //  mana
   //  graveyard (hidden)
- public:
-  Player();
-  Player(const Player &p) = delete;
-  Player &operator=(const Player &p) = delete;
-  virtual ~Player();
-  //  void setDeck(Deck & deck);
 };
 
 }  // namespace HearthstonePlayer

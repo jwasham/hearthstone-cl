@@ -32,10 +32,11 @@ class HearthstoneGame {
  private:
   bool suppress_usage_message_{false};
   bool debug_mode_{false};
-  bool strict_dck_mode_{true};
+  bool strict_deck_mode_{true};
   HearthstonePlayer::Player player1_;
   HearthstonePlayer::Player player2_;
-  void SetupPlayer(const std::string deckFilePath, HearthstonePlayer::Player *player);
+  void SetupPlayer(const std::string deckFilePath,
+                   HearthstonePlayer::Player *player);
 };
 
 }  // namespace HearthstoneCL
