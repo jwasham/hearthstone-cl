@@ -1,4 +1,3 @@
-#include <iostream>
 #include "HearthstoneGame.h"
 
 int main(int argc, char *argv[]) {
