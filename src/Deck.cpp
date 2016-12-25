@@ -14,7 +14,29 @@ void Deck::AddCard(const HearthstoneCard::Card &card) {
   Shuffle();
 }
 
-void Deck::Shuffle() { std::random_shuffle(cards_.begin(), cards_.end()); }
+void Deck::Shuffle() {
+    std::vector<HearthstoneCard::Card> small;
+    std::vector<HearthstoneCard::Card> med;
+    std::vector<HearthstoneCard::Card> large;
+
+    for(auto i = cards_.begin(); i != cards_.end(); i++) {
+        int cardCost = i->getCost();
+        if(cardCost <= 4) small.push_back(*i);
+        else if(cardCost <=6) med.push_back(*i);
+        else large.push_back(*i);
+    }
+
+    cards_.clear();
+
+    std::random_shuffle(small.begin(),small.end());
+    std::random_shuffle(med.begin(),med.end());
+    std::random_shuffle(large.begin(),large.end());
+
+    cards_.reserve(small.size() + med.size() + large.size());
+    cards_.insert(cards_.end(), small.begin(), small.end());
+    cards_.insert(cards_.end(), med.begin(), med.end());
+    cards_.insert(cards_.end(), large.begin(), large.end());
+}
 
 void Deck::SetHeroClass(const std::string hc) { hero_class_ = hc; }
 

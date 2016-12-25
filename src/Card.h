@@ -12,7 +12,7 @@ class Card {
   //  Card &operator=(const Card &c) = delete;
   virtual ~Card();
   //  bool canPlayCard() const;
-
+  int getCost();
  private:
   int cost_;
   std::string name_;
